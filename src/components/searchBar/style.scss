@@ -1,0 +1,18 @@
+input{
+  // width: auto;
+  flex-grow: inherit;
+  width: 500px;
+  min-width: 100px;
+  height: 30px;
+  margin-right: 10px;
+  margin-bottom: 5px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px 10px 10px 10px;
+}
+input:focus,
+textarea:focus {
+  border: 1px solid #1670BE;
+  box-shadow: 0 0 3px #1670BE;
+  outline-offset: 0px;
+  outline: none;
+}

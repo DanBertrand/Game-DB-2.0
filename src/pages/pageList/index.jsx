@@ -42,10 +42,21 @@ const PageList = ({ didSearch, updateSearch }) => {
   console.log('Search: ', search);
   return (
     <>
-      <SearchBar input={input} setInput={setInput} />
-      <DeleteButton updateSearch={updateSearch} />
+      <div className="header">
+        <h1>The Hyper Program</h1>
+        <div>
+          <SearchBar input={input} setInput={setInput} />
+          <DeleteButton updateSearch={updateSearch} />
+        </div>
+      </div>
       <div className="game-list">
-        {search && search.results.map((game) => <DisplayGame key={game.slug} gameSlug={game.slug} />)}
+        {search && search.results.length > 1 ? search.results.map((game) => <DisplayGame key={game.slug} gameSlug={game.slug} />) : (
+          <p className="no-result">
+            Sorry ... we couldn
+            {'\''}
+            t find your content
+          </p>
+        )}
       </div>
     </>
   );
