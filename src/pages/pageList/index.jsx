@@ -1,7 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
+import SearchBar from '../../components/searchBar/index';
 
-const PageList = () => (
-  <div>PageList</div>
-);
+const PageList = () => {
+  const [input, setInput] = useState();
+
+  return (
+    <>
+      <div>PageList</div>
+      <SearchBar input={input} setInput={setInput} />
+    </>
+  );
+};
 
 export default PageList;
