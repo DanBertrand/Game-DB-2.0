@@ -10,7 +10,6 @@ const DisplayList = ({ gameSlug }) => {
     setGame(await json);
   };
   useEffect(() => { fetchData(); }, []);
-  console.log(game);
   return (
     (game ? <GameCard game={game} /> : <p>Loading ...</p>)
 
