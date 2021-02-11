@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import DisplayList from '../../components/displayList/index';
+import DisplayGame from '../../components/displayList/index';
 import SearchBar from '../../components/searchBar/index';
 
 const PageList = () => {
@@ -18,7 +18,7 @@ const PageList = () => {
   return (
     <>
       <SearchBar input={input} setInput={setInput} fetchData={fetchData} />
-      {search && <DisplayList searchList={search} />}
+      {search && search.results.map((game) => <DisplayGame key={game.slug} gameSlug={game.slug} />)}
     </>
   );
 };
