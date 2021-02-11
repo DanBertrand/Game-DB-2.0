@@ -23,7 +23,6 @@ const GameCard = ({ game }) => {
     if (platform.platform.slug === 'mac') { return <p>Mac</p>; }
     return null;
   };
-  console.log('Hover ? ', isHovered);
   return (
     <div onMouseEnter={toggleHover} onMouseLeave={toggleHover}>
       <Link className="card-game" to={`/pagedetails/${game.slug}`}>

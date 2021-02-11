@@ -8,12 +8,14 @@ import PageDetails from './pages/pageDetails';
 
 const App = () => {
   const [didSearch, setDidSearch] = useState(false);
+  const [input, setInput] = useState();
   const updateSearch = (string) => {
     if (string === 'keep') {
       setDidSearch(true);
     }
     if (string === 'remove') {
       setDidSearch(false);
+      setInput('');
     }
   };
   useEffect(() => { updateSearch(); }, []);
@@ -24,7 +26,7 @@ const App = () => {
       <Router>
         <Switch>
           <Route path="/" exact>
-            <PageList didSearch={didSearch} updateSearch={updateSearch} />
+            <PageList didSearch={didSearch} updateSearch={updateSearch} input={input} setInput={setInput} />
           </Route>
           <Route path="/pagedetails/:slug">
             <PageDetails />
