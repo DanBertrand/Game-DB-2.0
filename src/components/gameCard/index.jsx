@@ -38,7 +38,7 @@ const GameCard = ({ game }) => {
         <Link to={`/pagedetails/${game.slug}`}>
           <div className="hidden-div">
             {game.released && <p>{`Release: ${game.released}`}</p>}
-            {game.developers[0].name && <p>{`Main publisher: ${game.developers[0].name}`}</p>}
+            {game.developers[0] && game.developers[0].name && <p>{`Main publisher: ${game.developers[0].name}`}</p>}
             <p>{`${game.rating} / 5`}</p>
             {/* <p>{game.tags}</p> */}
           </div>

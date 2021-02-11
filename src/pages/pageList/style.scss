@@ -12,11 +12,27 @@
   }
 
 }
+.presentation{
+  color: white;
+  font-family: 'Montserrat';
+  display: flex;
+  flex-direction: column;
+  margin-left: 20%;
+  margin-right: 20%;
+  h2{
+    font-size: 36px;
+    padding-top: 15px;
+    padding-bottom: 10px;
+  }
+}
 .game-list{
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: center;
+  margin-right: 6%;
+  margin-left: 6%;
+  margin-top: 50px;
   .no-result{
     color: white;
     font-size: 36px;

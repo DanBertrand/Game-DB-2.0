@@ -1,6 +1,7 @@
 /* eslint-disable max-len */
 import './style.scss';
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import DeleteButton from '../../components/deleteButton/index';
 import DisplayGame from '../../components/displayList/index';
 import SearchBar from '../../components/searchBar/index';
@@ -39,15 +40,27 @@ const PageList = ({ didSearch, updateSearch }) => {
 
   useEffect(() => { fetchSearch(); }, [input]);
   useEffect(() => { fetchFutureGames(); }, [didSearch]);
-  console.log('Search: ', search);
+
   return (
     <>
       <div className="header">
-        <h1>The Hyper Program</h1>
+        <Link to="/">
+          <h1>The Hyper Program</h1>
+        </Link>
         <div>
           <SearchBar input={input} setInput={setInput} />
           <DeleteButton updateSearch={updateSearch} />
         </div>
+      </div>
+      <div className="presentation">
+        <h2>Welcome,</h2>
+        <p>
+          The Hyper Progame is the world’s premier event for computer and video games and related products. At The Hyper Progame,
+          the video game industry’s top talent pack the Los Angeles Convention Center, connecting tens of thousands of the best,
+          brightest, and most innovative in the interactive entertainment industry. For three exciting days, leading-edge companies,
+          groundbreaking new technologies, and never-before-seen products will be showcased. The Hyper Progame connects you
+          with both new and existing partners, industry executives, gamers, and social influencers providing unprecedented exposure.
+        </p>
       </div>
       <div className="game-list">
         {search && search.results.length > 1 ? search.results.map((game) => <DisplayGame key={game.slug} gameSlug={game.slug} />) : (
@@ -58,6 +71,7 @@ const PageList = ({ didSearch, updateSearch }) => {
           </p>
         )}
       </div>
+      <button type="button">Show More</button>
     </>
   );
 };

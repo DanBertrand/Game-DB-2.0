@@ -1,6 +1,6 @@
 import './style.scss';
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 
 const PageDetails = () => {
   const { slug } = useParams();
@@ -12,7 +12,14 @@ const PageDetails = () => {
   };
   useEffect(() => { fetchData(); }, []);
   return (
-    (game ? <h1>{game.name}</h1> : <p>Loading ...</p>)
+    <>
+      <div className="header">
+        <Link to="/">
+          <h1>The Hyper Program</h1>
+        </Link>
+      </div>
+      {game ? <h1>{game.name}</h1> : <p>Loading ...</p>}
+    </>
   );
 };
 
