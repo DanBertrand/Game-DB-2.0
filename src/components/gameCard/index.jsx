@@ -22,7 +22,6 @@ const GameCard = ({ game }) => {
 
     return null;
   };
-  console.log(game);
   return (
     <div>
       <Link className="card-game" to={`/pagedetails/${game.slug}`}>

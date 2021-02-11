@@ -6,15 +6,17 @@ import SearchBar from '../../components/searchBar/index';
 
 const PageList = () => {
   const [input, setInput] = useState();
-  const [search, setSearch] = useState();
+  const [search, setSearch] = useState((localStorage.getItem('Search') ? JSON.parse(localStorage.getItem('Search')) : ''));
   const fetchData = async () => {
     if (input && input.length > 2) {
       const inputFormat = input.split(' ').join('%20');
       const response = await fetch(`https://api.rawg.io/api/games?search=${inputFormat}&page_size=27`);
       const json = await response.json();
       setSearch(await json);
+      localStorage.setItem('Search', JSON.stringify(await search));
     }
   };
+
   useEffect(() => { fetchData(); }, [input]);
 
   return (
